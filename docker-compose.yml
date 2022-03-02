@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  slate:
+    image: easy-slate
+    build:
+      context: .
+    command: bundle exec middleman server
+    volumes:
+      - ./src/api-spec.md:/slate-native/slate/source/index.html.md
+      - ./src/logo.png:/slate-native/slate/source/images/logo.png
+      - ./build:/slate-native/slate/build
+    ports:
+      - 4567:4567
+
